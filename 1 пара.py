@@ -3,16 +3,18 @@ y = int(input("друге число:"))
 c = input("дія:")
 ans = 0
 
+
 if c == "/" and y == 0:
-    print("на 0 ділити не можна")
-
-if c == "/":
+    ans = ("на 0 ділити не можна")
+elif c == "/" and y != 0:
     ans = x / y
-
-if c == "+":
+elif c == "+":
     ans = x+y
-if c == "-" and y == 0:
+elif c == "-":
     ans = x-y
-if c == "*" and y == 0:
+elif c == "*":
     ans = x * y
+
+
+
 print(ans)
