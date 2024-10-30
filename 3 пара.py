@@ -6,7 +6,8 @@ class Student:
         self.gladness = 30
         self.progress = 10
         self.alive = True
-        self.energy = 50
+        self.energy = 60
+        self.money = 25
 
 
     def study(self):
@@ -17,15 +18,22 @@ class Student:
 
     def sleep(self):
         print('Я пішов спати')
-        self.progress += 1
-        self.energy += 2
+
+        self.energy += 3
         self.gladness += 1
 
     def chill(self):
         print('Я пішов гуляти')
-        self.progress -= 2
+        self.money -= 5
+        self.progress -= 1
         self.energy -= 1
-        self.gladness += 1
+        self.gladness += 2
+
+    def work(self):
+        print('Я - працювати')
+        self.money +=10
+        self.energy -= 1
+        self.gladness -= 1
 
 
 
@@ -34,6 +42,7 @@ class Student:
         print(f'Задоволення : {self.gladness}')
         print(f'Знання      : {self.progress}')
         print(f'Енергія     : {self.energy}')
+        print(f'Гроші     : {self.money}')
 
     def is_alive(self):
         if self.progress < 0:
@@ -48,18 +57,38 @@ class Student:
         if self.energy < 0:
             print(f'Low batari')
             self.alive = False
+        if self.money < 0:
+            print(f'Я збіднів')
+            self.alive = False
+
+
+
+
 
 
     def live(self, day):
         print(f'День N{day} з життя {self.name}')
         print("-"*30)
-        rnd = random.randint(1,3)
+        if self.progress < 4:
+            rnd = 1
+        if self.gladness < 4:
+            rnd = 2
+        if self.progress > 96:
+            rnd = 2
+        if self.energy < 4:
+            rnd = 3
+        if self.money < 5:
+            rnd = 4
+        else:
+            rnd = random.randint(1, 4)
         if rnd == 1:
             self.study()
         elif rnd == 2:
             self.chill()
         elif rnd == 3:
             self.sleep()
+        elif rnd == 4:
+            self.work()
         self.info()
         self.is_alive()
         print()
