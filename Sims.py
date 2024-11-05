@@ -9,15 +9,21 @@ class Human:
         self.money = 100
 
     def work(self):
+        self.money +=40
+        print('Я сьогодн працюю')
+
+    def cleaning(self):
         self.money +=20
         print('Я сьогодн працюю')
 
     def eat(self):
         self.house -= random.randint(1, 10)
+
         print('Я поїв')
 
     def shopping(self):
         self.money -= random.randint(1, 10)
+        self.house += random.randint(5, 10)
         if self.car == None:
             print("Пішов")
         else:
@@ -33,6 +39,8 @@ class Human:
     def info(self):
         print(f"Грош - {self.money}")
         print(self.house)
+        if self.car != None:
+            print(self.car)
 
     def live(self, day):
         print(f"день {day}")
@@ -45,7 +53,13 @@ class Human:
             self.eat()
         elif choice == 4:
             self.chill()
+
+        if self.money > 1000:
+            print('Купляємо авто')
+            self.money -= 500
+            self.car = Car('Lexus RX 350')
         self.info()
+        print()
 
 
     def is_alive(self):
@@ -100,4 +114,8 @@ class Job:
 #car = Car("Lexus RX 350")
 job = Job("Programmer", 1000)
 
-human = Human('Antonw', job=job)
+human = Human('Anton', job=job)
+for day in range(366):
+    if human.is_alive() == False:
+        break
+    human.live(day)
