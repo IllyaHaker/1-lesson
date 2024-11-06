@@ -17,13 +17,13 @@ class Human:
         print('Я сьогодн працюю')
 
     def eat(self):
-        self.house -= random.randint(1, 10)
+        self.house.food -= random.randint(1, 10)
 
         print('Я поїв')
 
     def shopping(self):
         self.money -= random.randint(1, 10)
-        self.house += random.randint(5, 10)
+        self.house.food += random.randint(5, 10)
         if self.car == None:
             print("Пішов")
         else:
