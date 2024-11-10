@@ -11,14 +11,32 @@ class Human:
     def work(self):
         self.money +=40
         print('Я сьогодн працюю')
+        if self.car == None:
+            print("Пішов на роботу :(")
+        else:
+            if self.car.driwe(random.randint(1, 10) * 10):
+                print("Поїхав працювати ")
+            else:
+                print("Пішов на роботу")
+
 
     def cleaning(self):
-        self.money +=20
-        print('Я сьогодн працюю')
+
+        choice_of_cleaning = random.randint(1, 2)
+        if choice_of_cleaning == 1 and self.house.pollution >=10:
+            print('Я сьогодні прибираю пил')
+            self.house.pollution -= 5
+        elif choice_of_cleaning == 2 and self.house.pollution >=0:
+            self.house.pollution =0
+            print('Я сьогодні роблю генеральне прибирання')
+        else:
+            self.chill()
+
+
 
     def eat(self):
         self.house.food -= random.randint(1, 10)
-
+        self.house.pollution += random.randint(2, 8)
         print('Я поїв')
 
     def shopping(self):
@@ -34,6 +52,7 @@ class Human:
 
     def chill(self):
         self.money -= random.randint(10 , 20)
+        self.house.pollution += random.randint(5, 15)
         print("Відпочив")
 
     def info(self):
@@ -44,7 +63,7 @@ class Human:
 
     def live(self, day):
         print(f"день {day}")
-        choice = random.randint(1, 4)
+        choice = random.randint(1, 5)
         if choice == 1:
             self.work()
         elif choice == 2:
@@ -53,13 +72,22 @@ class Human:
             self.eat()
         elif choice == 4:
             self.chill()
+        elif choice == 5:
+            self.cleaning()
 
         if self.money > 1000:
             print('Купляємо авто')
             self.money -= 500
             self.car = Car('Lexus RX 350')
+
+        if self.house.pollution >= 90:
+            print('Замовляю клінінг')
+            self.money -= 100
+            self.house.pollution = 0
         self.info()
-        print()
+
+
+
 
 
     def is_alive(self):
@@ -85,7 +113,8 @@ class Car:
     def driwe(self, h):
         delta_fuel = h * 0.1
         if self.fuel - delta_fuel < 0:
-            print('Подореж не можлива.Low fuel ')
+            print('Подорож не можлива.Low fuel. Додай пального ')
+            self.fuel += random.randint(0, 3)
             return False
         else:
             print(f"Ми проїхали {h} км, витратили {delta_fuel} л пального")
@@ -100,7 +129,7 @@ class Car:
             self.fuel = 60
 
     def __str__(self):
-        return f"Авто {self.model} - бензин {self.fuel} л, стан - {self.state} %"
+        return f"Авто {self.model} - бензин {self.fuel} л, стан - {int(self.state)} %"
 
 
 class Job:
