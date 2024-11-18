@@ -14,7 +14,7 @@ cur = connection.cursor()
 #("Login added")
 #connection.close()
 
-#========SELECT=========
+#========SELECT==========
 #cur.execute(f"SELECT * FROM users")
 cur.execute(f"SELECT * FROM users WHERE login= 'Kyril'")
 connection.commit()
