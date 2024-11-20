@@ -29,6 +29,7 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
       <object connection-id="b721b68a-8646-4e54-abcc-6af332565b19" object-ref="schemas/AnimalKingdom/tables/Animals" />
+      <object connection-id="1d230353-2488-492e-b908-12a3a598e8c7" object-ref="schemas/АААААааааааааа/tables/users" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
