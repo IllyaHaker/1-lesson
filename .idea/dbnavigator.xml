@@ -28,7 +28,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="1d230353-2488-492e-b908-12a3a598e8c7" object-ref="schemas/АААААааааааааа/tables/users" />
+      <object connection-id="b721b68a-8646-4e54-abcc-6af332565b19" object-ref="schemas/AnimalKingdom/tables/Users" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
@@ -37,6 +37,7 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="b721b68a-8646-4e54-abcc-6af332565b19" dataset="AnimalKingdom.Animals" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="b721b68a-8646-4e54-abcc-6af332565b19" dataset="AnimalKingdom.Users" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="1d230353-2488-492e-b908-12a3a598e8c7" dataset="АААААааааааааа.users" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
