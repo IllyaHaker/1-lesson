@@ -13,20 +13,16 @@ cur = connection.cursor()
 Choice = input("login or register : ")
 if Choice == 'login':
     login = input("login : ")
-    cur.execute(f"SELECT rowid FROM Users WHERE login= '{login}';")
+    password = input("password : ")
+
+    cur.execute(f"SELECT rowid FROM Users WHERE login= '{login}' and password= '{password}';")
     connection.commit()
     res = cur.fetchall()
     if res != []:
-        password = input("password : ")
-        cur.execute(f"SELECT rowid FROM Users WHERE password= '{password}';")
-        connection.commit()
-        res = cur.fetchall()
-        if res != []:
-            print('Successful login')
-        else:
-            print('incorrect password')
+        print('Successful login')
+
     else:
-        print('login not registered')
+        print('incorrect login or password')
 
 
 if Choice == 'register':
